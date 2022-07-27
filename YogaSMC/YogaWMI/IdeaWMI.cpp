@@ -328,6 +328,27 @@ void IdeaWMIGameZone::processWMI() {
     else
         AlwaysLog("Failed to get version");
 
+    if (getGamzeZoneData(GAME_ZONE_WMI_GET_THERMAL_TABLE, &result))
+        setProperty("Thermal Table", result, 32);
+    else
+        AlwaysLog("Failed to get Thermal Table");
+    if (getGamzeZoneData(GAME_ZONE_WMI_GET_CHARGE_MODE, &result))
+        setProperty("Charge Mode", result, 32);
+    else
+        AlwaysLog("Failed to get Charge Mode");
+    if (getGamzeZoneData(GAME_ZONE_WMI_GET_THERMAL_MODE, &result))
+        setProperty("Thermal Mode", result, 32);
+    else
+        AlwaysLog("Failed to get Thermal Mode");
+    if (getGamzeZoneData(GAME_ZONE_WMI_GET_SMARTFAN_MODE, &result))
+        setProperty("Smart Fan Mode", result, 32);
+    else
+        AlwaysLog("Failed to get Fan Mode");
+    if (getGamzeZoneData(GAME_ZONE_WMI_GET_SMARTFAN_STA, &result))
+        setProperty("Smart Fan STA", result, 32);
+    else
+        AlwaysLog("Failed to get Fan STA");
+
     if (getGamzeZoneData(GAME_ZONE_WMI_GET_FAN_NUM, &result))
         setProperty("Fan number", result, 32);
     else
