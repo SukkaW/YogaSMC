@@ -17,7 +17,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: macos-latest
+    runs-on: macos-10.15
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -36,7 +36,7 @@ jobs:
         # scheme: # optional
         # destination: # optional
         configuration: Debug
-        build-settings: -target BuildAll
+        build-settings: -target YogaSMC
         action: build
     - name: Xcodebuild Release
       uses: sersoft-gmbh/xcodebuild-action@v1
@@ -44,7 +44,7 @@ jobs:
         project: YogaSMC.xcodeproj
         # destination: # optional
         configuration: Release
-        build-settings: -target BuildAll
+        build-settings: -target YogaSMC
         action: build
     - name: Prepare release image
       run: |
